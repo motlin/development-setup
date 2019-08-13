@@ -87,6 +87,11 @@ git config --global help.autoCorrect 20
 # https://git-scm.com/docs/git-config#git-config-fetchrecurseSubmodules
 git config --global fetch.recurseSubmodules true
 
+# git push should recurse into submodules on-demand
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushrecurseSubmodules
+# all submodules that changed in the revisions to be pushed will be pushed
+git config --global push.recurseSubmodules on-demand
+
 # git should create a temporary stash entry before a rebase and apply it after the rebase ends. This means that you can run rebase on a dirty worktree. However, use with care: the final stash application after a successful rebase might result in non-trivial conflicts. This option can be overridden by the --no-autostash and --autostash options of git-rebase.
 # https://git-scm.com/docs/git-config#git-config-rebaseautoStash
 git config --global rebase.autoStash true
