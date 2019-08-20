@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 set -euxo pipefail
 
@@ -21,13 +20,11 @@ git config --global alias.oops 'commit --amend --no-edit'
 
 # git has some amazing hidden features and some terrible default configuration choices that everyone seems to change. In this section, I'm trying to only list those, and avoid personal preferences. You can think of these as bad defaults in git that ought to be changed.
 
-# TODO
 # If you use different email addresses to commit to different git repositories on the same computer, it's best to avoid setting a global user.email or it's too easy to make mistakes. Git also tries to infer your email address as user@host in some situations.
 # https://blog.github.com/2016-03-28-git-2-8-has-been-released/#dont-guess-my-identity
 # Now you can tell Git not to guess, but rather to insist that you set user.name and user.email explicitly before it will let you commit:
 git config --global user.useConfigOnly true
 
-# TODO
 # Ensure that Git is properly configured to handle line endings. On OS X, you simply pass input to the configuration.
 # https://help.github.com/articles/dealing-with-line-endings/
 git config --global core.autocrlf input
@@ -44,7 +41,6 @@ git config --global diff.submodule diff
 # https://git-scm.com/docs/git-config#git-config-diffmnemonicPrefix
 git config --global diff.mnemonicPrefix true
 
-# TODO
 # When runing git diff --color-words, git uses this regex to determinate word boundaries.
 # https://git-scm.com/docs/git-config#git-config-diffwordRegex
 # https://medium.com/@porteneuve/30-git-cli-options-you-should-know-about-15423e8771df
@@ -109,6 +105,10 @@ git config --global stash.showPatch true
 # https://git-scm.com/docs/git-config#git-config-rebasemissingCommitsCheck
 git config --global rebase.missingCommitsCheck error
 
+# https://devblogs.microsoft.com/devops/exploring-new-frontiers-for-git-push-performance/
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-packuseSparse
+git config --global pack.useSparse true
+
 
 # In the past, git has had some terrible default options that were fixed in later versions. If you are like me, you have some now-redundant configuration and can't remember why. These --unset commands can clean up some configuration that is no longer necessary assuming you're on a reasonably modern version of git. Be careful though, these commands do not check that your configuration is in fact redundant.
 
@@ -125,8 +125,4 @@ git config --global --unset clean.requireForce
 # https://git-scm.com/docs/git-config#git-config-colorui
 # Use colors in output. Always, never, or auto when writing to terminal. auto is the default since Git 1.8.4.
 git config --global --unset color.ui
-
-# https://devblogs.microsoft.com/devops/exploring-new-frontiers-for-git-push-performance/
-# https://git-scm.com/docs/git-config#Documentation/git-config.txt-packuseSparse
-git config --global pack.useSparse true
 
