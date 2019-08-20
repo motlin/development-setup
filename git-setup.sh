@@ -109,6 +109,11 @@ git config --global rebase.missingCommitsCheck error
 # https://git-scm.com/docs/git-config#Documentation/git-config.txt-packuseSparse
 git config --global pack.useSparse true
 
+# https://devblogs.microsoft.com/devops/supercharging-the-git-commit-graph/
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-corecommitGraph
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-gcwriteCommitGraph
+git config --global core.commitGraph true
+git config --global gc.writeCommitGraph true
 
 # In the past, git has had some terrible default options that were fixed in later versions. If you are like me, you have some now-redundant configuration and can't remember why. These --unset commands can clean up some configuration that is no longer necessary assuming you're on a reasonably modern version of git. Be careful though, these commands do not check that your configuration is in fact redundant.
 
