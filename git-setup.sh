@@ -126,3 +126,7 @@ git config --global --unset clean.requireForce
 # Use colors in output. Always, never, or auto when writing to terminal. auto is the default since Git 1.8.4.
 git config --global --unset color.ui
 
+# https://devblogs.microsoft.com/devops/exploring-new-frontiers-for-git-push-performance/
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-packuseSparse
+git config --global pack.useSparse true
+
