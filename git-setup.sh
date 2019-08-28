@@ -16,7 +16,15 @@ git config --global alias.last 'log -1 HEAD'
 # Next a few of my own that also seem to be pretty common
 git config --global alias.cp cherry-pick
 git config --global alias.oops 'commit --amend --no-edit'
-
+# Consistent commands to list all branches, tags, stashes, aliases
+  # https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
+  # Friendly wording is easier to remember.
+  # Thanks to http://gggritso.com/human-git-aliases
+git config --global alias.branches 'branch --all'
+git config --global alias.tags 'tags'
+git config --global alias.stashes 'stash list'
+  # https://stackoverflow.com/a/7067489/23572
+git config --global alias.aliases 'config --get-regexp ^alias\.'
 
 # git has some amazing hidden features and some terrible default configuration choices that everyone seems to change. In this section, I'm trying to only list those, and avoid personal preferences. You can think of these as bad defaults in git that ought to be changed.
 
