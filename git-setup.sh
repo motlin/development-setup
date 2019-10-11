@@ -96,6 +96,10 @@ git config --global fetch.recurseSubmodules true
 # all submodules that changed in the revisions to be pushed will be pushed
 git config --global push.recurseSubmodules on-demand
 
+# there is no configuration available to tell git to always use `force-with-lease` instead of `force`
+# https://stackoverflow.com/a/30567394/23572
+git config --global alias.pushf "push --force-with-lease"
+
 # git should create a temporary stash entry before a rebase and apply it after the rebase ends. This means that you can run rebase on a dirty worktree. However, use with care: the final stash application after a successful rebase might result in non-trivial conflicts. This option can be overridden by the --no-autostash and --autostash options of git-rebase.
 # https://git-scm.com/docs/git-config#git-config-rebaseautoStash
 git config --global rebase.autoStash true
