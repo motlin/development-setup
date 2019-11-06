@@ -126,6 +126,9 @@ git config --global pack.useSparse true
 # https://git-scm.com/docs/git-config#Documentation/git-config.txt-gcwriteCommitGraph
 git config --global core.commitGraph true
 git config --global gc.writeCommitGraph true
+# https://github.blog/2019-11-03-highlights-from-git-2-24/
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-fetchwriteCommitGraph
+git config --global fetch.writeCommitGraph true
 
 # In the past, git has had some terrible default options that were fixed in later versions. If you are like me, you have some now-redundant configuration and can't remember why. These --unset commands can clean up some configuration that is no longer necessary assuming you're on a reasonably modern version of git. Be careful though, these commands do not check that your configuration is in fact redundant.
 
