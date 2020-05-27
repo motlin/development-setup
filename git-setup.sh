@@ -110,7 +110,7 @@ git config --global merge.autoStash true
 
 # TODO
 # Print out the ref names of any commits that are shown by the log command. If short is specified, the ref name prefixes refs/heads/, refs/tags/ and refs/remotes/ will not be printed. If full is specified, the full ref name (including prefix) will be printed. If auto is specified, then if the output is going to a terminal, the ref names are shown as if short were given, otherwise no ref names are shown. This is the same as the --decorate option of the git log.
-# https://git-scm.com/docs/git-config#git-config-logdecorate
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-logdecorate
 git config --global log.decorate full
 
 # git stash show (without an option) should show the stash entry in patch form.
