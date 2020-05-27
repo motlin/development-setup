@@ -106,6 +106,7 @@ git config --global alias.pushf "push --force-with-lease"
 # git should create a temporary stash entry before a rebase and apply it after the rebase ends. This means that you can run rebase on a dirty worktree. However, use with care: the final stash application after a successful rebase might result in non-trivial conflicts. This option can be overridden by the --no-autostash and --autostash options of git-rebase.
 # https://git-scm.com/docs/git-config#git-config-rebaseautoStash
 git config --global rebase.autoStash true
+git config --global merge.autoStash true
 
 # TODO
 # Print out the ref names of any commits that are shown by the log command. If short is specified, the ref name prefixes refs/heads/, refs/tags/ and refs/remotes/ will not be printed. If full is specified, the full ref name (including prefix) will be printed. If auto is specified, then if the output is going to a terminal, the ref names are shown as if short were given, otherwise no ref names are shown. This is the same as the --decorate option of the git log.
