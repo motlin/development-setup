@@ -24,7 +24,7 @@ git config --global alias.branches 'branch --all'
 git config --global alias.tags 'tag --list'
 git config --global alias.stashes 'stash list'
 git config --global alias.worktrees 'worktree list'
-git config --global alias.remotes 'remote -v'
+git config --global alias.remotes 'remote --verbose'
 
   # https://stackoverflow.com/a/7067489/23572
 git config --global alias.aliases 'config --get-regexp ^alias\.'
