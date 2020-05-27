@@ -21,7 +21,7 @@ git config --global alias.oops 'commit --amend --no-edit'
   # Friendly wording is easier to remember.
   # Thanks to http://gggritso.com/human-git-aliases
 git config --global alias.branches 'branch --all'
-git config --global alias.tags 'tags'
+git config --global alias.tags 'tag --list'
 git config --global alias.stashes 'stash list'
 git config --global alias.worktrees 'worktree list'
 git config --global alias.remotes 'remote -v'
