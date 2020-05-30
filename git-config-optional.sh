@@ -78,4 +78,3 @@
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-logdecorate
         git config --global log.decorate full
 
-
