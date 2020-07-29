@@ -134,3 +134,8 @@
         # https://git-scm.com/docs/git-config/#Documentation/git-config.txt-protocolversion
         # Added in 2.19. Default in 2.26.
         git config --global protocol.version 2
+        
+    # Default branch name
+        # https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch
+        git config --global init.defaultBranch main
+
