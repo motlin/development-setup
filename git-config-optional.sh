@@ -54,6 +54,9 @@
         # git config --global core.autocrlf true
         # Mac and Linux:
         git config --global core.autocrlf input
+    # long file names
+        # Fix "Filename too long" errors in Windows
+        git config --system core.longpaths true
 
 
 # Depends on taste
