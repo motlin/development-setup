@@ -6,7 +6,7 @@ set -euxo pipefail
 
 # My aliases that aren't too common
 git config --global alias.ri 'rebase --interactive --autosquash'
-git config --global alias.f 'fetch --all --prune'
+git config --global alias.f 'fetch --all --prune --jobs=8'
 git config --global alias.detach 'checkout --detach'
 git config --global alias.ss 'status --short'
 git config --global alias.m 'mergetool --no-prompt --tool=vimdiff'
