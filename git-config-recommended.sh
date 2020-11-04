@@ -138,4 +138,8 @@
     # Default branch name
         # https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch
         git config --global init.defaultBranch main
-
+        
+    # Remote
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-remotepushDefault
+        # The remote to push to by default. Overrides branch.<name>.remote for all branches, and is overridden by branch.<name>.pushRemote for specific branches.
+        git config --global remote.pushDefault origin
