@@ -34,6 +34,9 @@
         # Defaults to "ignore".
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-rebasemissingCommitsCheck
         git config --global rebase.missingCommitsCheck error
+    # rebase branches on top of the fetched branch
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pullrebase
+        git config --global pull.rebase merges
 
 # Depends on software
     # fsmonitor
