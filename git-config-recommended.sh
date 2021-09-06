@@ -127,6 +127,14 @@
             # https://github.blog/2019-11-03-highlights-from-git-2-24/
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-fetchwriteCommitGraph
             git config --global fetch.writeCommitGraph true
+            
+        # Use On-disk reverse indexes
+            # https://github.blog/2021-03-15-highlights-from-git-2-31/#on-disk-reverse-indexes
+            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-packwriteReverseIndex
+            # Defaults to false at time of writing with git 2.31
+            # Manually run `git repack -Ad` to get the `.rev` file written to disk once.
+            git config --global pack.writeReverseIndex true
+            
 
     # Protocol v2
         # major update of Git's wire protocol
