@@ -103,13 +103,6 @@
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-stashshowStat
         git config --global stash.showPatch true
 
-    # Use sparse packs
-        # This can have significant performance benefits when computing a pack to send a small change.
-        # https://devblogs.microsoft.com/devops/exploring-new-frontiers-for-git-push-performance/
-        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-packuseSparse
-        # Default is false unless feature.experimental is enabled.
-        git config --global pack.useSparse true
-
     # Use the commit graph
         # The commit graph is a major optimization, introduced starting in 2.18 and eventually made the default in 2.24.
             # https://devblogs.microsoft.com/devops/supercharging-the-git-commit-graph/
@@ -139,6 +132,18 @@
             # https://github.blog/2021-08-16-highlights-from-git-2-33/#merge-ort-a-new-merge-strategy
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pulltwohead
             git config --global pull.twohead ort
+        # Use sparse packs
+            # This can have significant performance benefits when computing a pack to send a small change.
+            # https://devblogs.microsoft.com/devops/exploring-new-frontiers-for-git-push-performance/
+            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-packuseSparse
+            # Default is false unless feature.experimental is enabled.
+            git config --global pack.useSparse true
+
+        # Use file system monitor
+            # https://github.blog/2022-06-29-improve-git-monorepo-performance-with-a-file-system-monitor/
+            # added in Git version 2.37.0
+            git config --global core.fsmonitor true
+            git config --global core.untrackedcache true
 
     # Protocol v2
         # major update of Git's wire protocol
@@ -146,11 +151,11 @@
         # https://git-scm.com/docs/git-config/#Documentation/git-config.txt-protocolversion
         # Added in 2.19. Default in 2.26.
         git config --global protocol.version 2
-        
+
     # Default branch name
         # https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch
         git config --global init.defaultBranch main
-        
+
     # Remote
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-remotepushDefault
         # The remote to push to by default. Overrides branch.<name>.remote for all branches, and is overridden by branch.<name>.pushRemote for specific branches.
