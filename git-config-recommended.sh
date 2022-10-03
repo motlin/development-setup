@@ -75,7 +75,9 @@
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupRebase
             git config --global branch.autoSetupRebase always
 
-        # git should always set up tracking for new branches, not just for remote branches.
+        # Tells git branch, git switch and git checkout to set up new branches so that git-pull will merge from the starting point branch.
+        # true: automatic setup is done when the starting point is a remote-tracking branch;
+        # always: automatic setup is done when the starting point is either a local branch or remote-tracking branch;
             # Change from 'true' to 'always'
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupMerge
             git config --global branch.autoSetupMerge always
