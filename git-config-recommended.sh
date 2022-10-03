@@ -94,6 +94,10 @@
             # Coming in Git 2.27. Current version at time of writing is 2.26.2.
             git config --global merge.autoStash true
 
+    # rebase
+        # https://github.blog/2022-10-03-highlights-from-git-2-38/#rebase-dependent-branches-with-update-refs
+        git config --global rebase.updateRefs true
+
     # git log should act as if the --follow option was used when a single <path> is given
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-logfollow
         git config --global log.follow true
