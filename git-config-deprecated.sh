@@ -1,41 +1,63 @@
 #!/bin/bash
+# https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -uo pipefail
 
-# Git deprecated configuration
-    # In the past, git has had some poor default configuration that were fixed in later versions.
-    # These --unset commands can clean up some configuration that is no longer necessary assuming you're on a reasonably modern version of git.
-    # Be careful though, these commands do not check that your configuration is in fact redundant.
-    # Check your version of git using `git --version`
-    # Move the `exit 0` command to the right spot based on your version
+# Removing Redundant Git Configuration
 
-    # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
-    set -uxo pipefail
+# Git's default values for configuration have improved over time. Sometimes bad defaults were improved. Often, new features are set to false at first and flipped to true once stable.
 
-# Pre-2.0
-    # clean.requireForce
-        # A boolean to make git-clean do nothing unless given -f, -i or -n. Defaults to true since ???.
-        # https://git-scm.com/docs/git-config/#Documentation/git-config.txt-cleanrequireForce
-        git config --global --unset clean.requireForce
-    # color.ui
-        # Use colors in output. Always, never, or auto when writing to terminal. auto is the default since Git 1.8.4.
-        # https://git-scm.com/docs/git-config/#Documentation/git-config.txt-colorui
-        git config --global --unset color.ui
-# 2.0
-    # push.default
-        # https://git-scm.com/docs/git-config/#Documentation/git-config.txt-pushdefault
-        # Defines the action git push should take if no refspec is explicitly given.
-        # Default changed from 'matching' to 'simple' in 2.0.
-        git config --global --unset push.default
-# 2.24
-    # core.commitGraph
-        git config --global --unset core.commitGraph
-    # gc.writeCommitGraph
-        git config --global --unset gc.writeCommitGraph
-# 2.26
-    # protocol.version
-        git config --global --unset protocol.version
+# Git has no way to look up default configuration values, making it hard to know if a configuration is redundant. This script unsets configuration that is no longer necessary assuming you're on a reasonably modern version of git.
 
-exit 0
+# The script is arranged in chronological order of when the good default value was introduced. You can copy and run up to the version of git that you're running, or run the whole thing if you're on the latest version of git.
 
-# Some future version of git
-    # fetch.writeCommitGraph
-        git config --global --unset fetch.writeCommitGraph
+safe_unset() {
+    local key=$1
+    local value=$2
+
+    current_value=$(git config --global --get "$key")
+    local action=""
+
+    if [ -z "$current_value" ]; then
+        action="No action"
+        after_value="(not set)"
+    elif [ "$current_value" == "$value" ]; then
+        git config --global --unset "$key"
+        action="Unset"
+        after_value="(not set)"
+    else
+        # The key is set, but not to the specified value
+        action="No action"
+        after_value="$current_value"
+    fi
+
+    printf "%-26s %-12s %-20s %-20s\n" "$key" "$action" "${current_value:-(not set)}" "$after_value"
+}
+
+# Print the header
+printf "%-26s %-12s %-20s %-20s\n" "Key" "Action" "Value Before" "Value After"
+printf "%-26s %-12s %-20s %-20s\n" "--------------------------" "---------" "--------------------" "--------------------"
+
+# < 2.0 clean.requireForce
+# A boolean to make git-clean do nothing unless given -f, -i or -n. Defaults to true since ???.
+# https://git-scm.com/docs/git-config/#Documentation/git-config.txt-cleanrequireForce
+safe_unset clean.requireForce true
+
+# 1.8.4 color.ui
+# Use colors in output. Always, never, or auto when writing to terminal.
+# https://git-scm.com/docs/git-config/#Documentation/git-config.txt-colorui
+safe_unset color.ui auto
+
+# 2.24 core.commitGraph
+safe_unset core.commitGraph true
+
+# 2.24 gc.writeCommitGraph
+safe_unset gc.writeCommitGraph true
+
+# 2.26 protocol.version
+safe_unset protocol.version 2
+
+# Some time between 2.26 and 2.30.0 pack.useSparse
+safe_unset pack.useSparse true
+
+# 2.41.0 pack.writeReverseIndex
+safe_unset pack.writeReverseIndex true

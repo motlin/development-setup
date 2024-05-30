@@ -23,7 +23,7 @@
         # https://stackoverflow.com/a/30567394/23572
         git config --global alias.pushf   'push --force-with-lease'
 
-    # Aliases for plurals. Otherwise, git has inconsistent commands to list all branches, tags, stashes, wortrees, remotes, aliases.
+    # Aliases for plurals. Otherwise, git has inconsistent commands to list all branches, tags, stashes, workrees, remotes, aliases.
         # Plurals from http://gggritso.com/human-git-aliases
         git config --global alias.branches  'branch --all'
         git config --global alias.tags      'tag --list'
@@ -102,6 +102,8 @@
 
     # git log should act as if the --follow option was used when a single <path> is given
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-logfollow
+        # https://git-scm.com/docs/git-log#Documentation/git-log.txt---follow
+        # Continue listing the history of a file beyond renames (works only for a single file).
         git config --global log.follow true
 
     # git stash show (without an option) should show the stash entry in patch form.
@@ -109,54 +111,17 @@
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-stashshowStat
         git config --global stash.showPatch true
 
-    # Use the commit graph
-        # The commit graph is a major optimization, introduced starting in 2.18 and eventually made the default in 2.24.
-            # https://devblogs.microsoft.com/devops/supercharging-the-git-commit-graph/
-        # Enable commit graph
-            # Defaults to true in 2.24
-            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-corecommitGraph
-            git config --global core.commitGraph true
-        # Update commit graph during garbage collection
-            # Defaults to true in 2.24
-            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-gcwriteCommitGraph
-            git config --global gc.writeCommitGraph true
-        # Update commit graph during fetch
-            # Defaults to false, unless feature.experimental is true.
-            # Default to false at time of writing with git 2.26.2.
-            # https://github.blog/2019-11-03-highlights-from-git-2-24/
-            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-fetchwriteCommitGraph
-            git config --global fetch.writeCommitGraph true
-
     # Performance
-        # Use On-disk reverse indexes
-            # https://github.blog/2021-03-15-highlights-from-git-2-31/#on-disk-reverse-indexes
-            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-packwriteReverseIndex
-            # Defaults to false at time of writing with git 2.31
-            # Manually run `git repack -Ad` to get the `.rev` file written to disk once.
-            git config --global pack.writeReverseIndex true
         # Use merge-ort merge strategy
             # https://github.blog/2021-08-16-highlights-from-git-2-33/#merge-ort-a-new-merge-strategy
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pulltwohead
             git config --global pull.twohead ort
-        # Use sparse packs
-            # This can have significant performance benefits when computing a pack to send a small change.
-            # https://devblogs.microsoft.com/devops/exploring-new-frontiers-for-git-push-performance/
-            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-packuseSparse
-            # Default is false unless feature.experimental is enabled.
-            git config --global pack.useSparse true
 
         # Use file system monitor
             # https://github.blog/2022-06-29-improve-git-monorepo-performance-with-a-file-system-monitor/
             # added in Git version 2.37.0
             git config --global core.fsmonitor true
             git config --global core.untrackedcache true
-
-    # Protocol v2
-        # major update of Git's wire protocol
-        # https://opensource.googleblog.com/2018/05/introducing-git-protocol-version-2.html
-        # https://git-scm.com/docs/git-config/#Documentation/git-config.txt-protocolversion
-        # Added in 2.19. Default in 2.26.
-        git config --global protocol.version 2
 
     # Default branch name
         # https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch

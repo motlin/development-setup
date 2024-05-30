@@ -39,15 +39,6 @@
         git config --global pull.rebase merges
 
 # Depends on software
-    # fsmonitor
-        # Git 2.16 added support for a core.fsmonitor hook to allow an external tool to inform it which files have changed.
-        # blog.github.com/2018-04-05-git-217-released/#speeding-up-status-with-watchman
-        # On repositories with many files, this can be a dramatic speedup.
-        # https://git-scm.com/docs/githooks#_fsmonitor_watchman
-        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-corefsmonitor
-        # First install rs-git-fsmonitor, or a competitor
-        # https://github.com/jgavris/rs-git-fsmonitor
-        git config --global core.fsmonitor rs-git-fsmonitor
 
     # line endings
         # Ensure that Git is properly configured to handle line endings.
@@ -60,7 +51,6 @@
     # long file names
         # Fix "Filename too long" errors in Windows
         git config --system core.longpaths true
-
 
 # Depends on taste
     # wordRegex
@@ -82,5 +72,4 @@
         # If auto is specified, then if the output is going to a terminal, the ref names are shown as if short were given, otherwise no ref names are shown.
         # This is the same as the --decorate option of the git log.
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-logdecorate
-        git config --global log.decorate full
-
+        git config --global log.decorate short
