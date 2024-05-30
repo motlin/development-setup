@@ -10,14 +10,6 @@
 
 
 # On/Off
-    # Prevent global name and email
-        # Instruct Git to avoid trying to guess defaults for user.email and user.name, and instead retrieve the values only from the configuration.
-        # For example, if you have multiple email addresses and would like to use a different one for each repository, then with this configuration option set to true in the global config along with a name, Git will prompt you to set up an email before making new commits in a newly cloned repository.
-        # Defaults to false.
-        # https://blog.github.com/2016-03-28-git-2-8-has-been-released/#dont-guess-my-identity
-        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-useruseConfigOnly
-        git config --global user.useConfigOnly true
-
     # git should delete the .orig file after merge conflicts are resolved.
         # It seems safer to keep the backup files, but git has so many other ways to recover work.
         # After performing a merge, the original file with conflict markers can be saved as a file with a .orig extension.
@@ -65,11 +57,3 @@
         # Continuing in 2.0 seconds, assuming that you meant 'help'.
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-helpautoCorrect
         git config --global help.autoCorrect 20
-    # Log decorations
-        # Print out the ref names of any commits that are shown by the log command.
-        # If short is specified, the ref name prefixes refs/heads/, refs/tags/ and refs/remotes/ will not be printed.
-        # If full is specified, the full ref name (including prefix) will be printed.
-        # If auto is specified, then if the output is going to a terminal, the ref names are shown as if short were given, otherwise no ref names are shown.
-        # This is the same as the --decorate option of the git log.
-        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-logdecorate
-        git config --global log.decorate short
