@@ -64,6 +64,9 @@
         # git diff should use a prefix pair that is different from the standard "a/" and "b/" depending on what is being compared. Only relevant when not piping through a pager/formatter like diff-so-fancy.
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-diffmnemonicPrefix
             git config --global diff.mnemonicPrefix true
+        # Highlight moved code blocks
+            # https://blog.gitbutler.com/how-git-core-devs-configure-git#better-diff
+            git config --global diff.colorMoved plain
 
     # rerere
         # Reuse recorded resolution
@@ -107,6 +110,7 @@
             # This option can be overridden by the --no-autostash and --autostash options of git-rebase.
         # Auto-stash before rebase
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-rebaseautoStash
+            # https://blog.gitbutler.com/how-git-core-devs-configure-git#slightly-nicer-rebase
             git config --global rebase.autoStash true
         # Auto-stash before merge
             # https://stackoverflow.com/a/30209750/23572
@@ -116,6 +120,8 @@
     # rebase
         # https://github.blog/2022-10-03-highlights-from-git-2-38/#rebase-dependent-branches-with-update-refs
         git config --global rebase.updateRefs true
+        # https://blog.gitbutler.com/how-git-core-devs-configure-git#slightly-nicer-rebase
+        git config --global rebase.autoSquash true
 
     # git log should act as if the --follow option was used when a single <path> is given
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-logfollow
@@ -143,6 +149,23 @@
     # Default branch name
         # https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch
         git config --global init.defaultBranch main
+
+    # Tag sorting
+        # https://blog.gitbutler.com/how-git-core-devs-configure-git#listing-tags
+        git config --global tag.sort version:refname
+
+    # Push
+        # https://blog.gitbutler.com/how-git-core-devs-configure-git#better-pushing
+        git config --global push.default simple
+        git config --global push.autoSetupRemote true
+
+    # Help autocorrect
+        # https://blog.gitbutler.com/how-git-core-devs-configure-git#autocorrect-prompting
+        # Example:
+        # git helo
+        # WARNING: You called a Git command named 'helo', which does not exist.
+        # Run 'help' instead [y/N]?
+        git config --global help.autocorrect prompt
 
     # Remote
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-remotepushDefault
