@@ -122,7 +122,7 @@
             git config --global rebase.autoStash true
         # Auto-stash before merge
             # https://stackoverflow.com/a/30209750/23572
-            # Coming in Git 2.27. Current version at time of writing is 2.26.2.
+            # Added in Git 2.27.
             git config --global merge.autoStash true
 
     # rebase
