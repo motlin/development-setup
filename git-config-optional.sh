@@ -50,10 +50,3 @@
         # https://git-scm.com/docs/git-config#git-config-diffwordRegex
         # https://medium.com/@porteneuve/30-git-cli-options-you-should-know-about-15423e8771df
         git config --global diff.wordRegex .
-    # autoCorrect
-        # Automatically correct and execute mistyped commands after waiting for the given number of deciseconds (0.1 sec). For example:
-        # git helo
-        # WARNING: You called a Git command named 'helo', which does not exist.
-        # Continuing in 2.0 seconds, assuming that you meant 'help'.
-        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-helpautoCorrect
-        git config --global help.autoCorrect 20
