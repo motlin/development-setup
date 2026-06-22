@@ -68,6 +68,14 @@
             # https://blog.gitbutler.com/how-git-core-devs-configure-git#better-diff
             git config --global diff.colorMoved plain
 
+    # merge
+        # Show the common ancestor ("base") in conflict markers, in addition to
+        # the two conflicting sides. zdiff3 is like diff3 but moves common lines
+        # out of the conflict region for smaller, clearer conflicts.
+            # Added in Git 2.35. Default is 'merge' (no base shown).
+            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergeconflictStyle
+            git config --global merge.conflictStyle zdiff3
+
     # rerere
         # Reuse recorded resolution
             # The git rerere functionality is a bit of a hidden feature. The name stands for "reuse recorded resolution" and, as the name implies, it allows you to ask Git to remember how you’ve resolved a hunk conflict so that the next time it sees the same conflict, Git can resolve it for you automatically.
