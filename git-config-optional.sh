@@ -43,10 +43,3 @@
     # long file names
         # Fix "Filename too long" errors in Windows
         git config --system core.longpaths true
-
-# Depends on taste
-    # wordRegex
-        # When runing git diff --color-words, git uses this regex to determinate word boundaries.
-        # https://git-scm.com/docs/git-config#git-config-diffwordRegex
-        # https://medium.com/@porteneuve/30-git-cli-options-you-should-know-about-15423e8771df
-        git config --global diff.wordRegex .
