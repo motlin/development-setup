@@ -41,6 +41,7 @@
         # More plurals
         git config --global alias.worktrees 'worktree list'
         git config --global alias.remotes   'remote --verbose'
+        git config --global alias.configs   'config --list --show-origin'
 
     # submodule configuration
         # Diffs of submodules should show the changed contents rather than a list of commits.
