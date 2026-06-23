@@ -67,6 +67,9 @@
         # Highlight moved code blocks
             # https://blog.gitbutler.com/how-git-core-devs-configure-git#better-diff
             git config --global diff.colorMoved plain
+        # Use the histogram diff algorithm, which tends to produce more readable diffs than the default Myers algorithm.
+            # https://blog.gitbutler.com/how-git-core-devs-configure-git#better-diff
+            git config --global diff.algorithm histogram
 
     # merge
         # Show the common ancestor ("base") in conflict markers, in addition to
@@ -100,6 +103,15 @@
         # unwanted. The default ('true') only sets up tracking for remote-tracking
         # starting points, which is what we want.
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupMerge
+
+        # Sort branches by most recent commit date instead of alphabetically.
+            # https://blog.gitbutler.com/how-git-core-devs-configure-git#listing-branches
+            git config --global branch.sort -committerdate
+
+    # column
+        # Display output (branches, tags, etc.) in columns when the terminal is wide enough.
+            # https://blog.gitbutler.com/how-git-core-devs-configure-git#listing-branches
+            git config --global column.ui auto
 
     # Log decorations
         # Print out the ref names of any commits that are shown by the log command.
@@ -172,6 +184,12 @@
         # The 'st' alias inherits this, so there's no need to bake --paginate into the alias.
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pagerltcmdgt
         git config --global pager.status true
+
+    # Commit
+        # Show the diff of what would be committed in the commit message editor, to help write the message. The diff is not included in the commit message.
+        # https://blog.gitbutler.com/how-git-core-devs-configure-git#commit-with-diffs
+        # https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---verbose
+        git config --global commit.verbose true
 
     # Help autocorrect
         # https://blog.gitbutler.com/how-git-core-devs-configure-git#autocorrect-prompting
