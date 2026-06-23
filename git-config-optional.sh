@@ -30,6 +30,15 @@
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pullrebase
         git config --global pull.rebase merges
 
+    # Refuse to create merge commits on `git merge`; only fast-forward merges are allowed.
+        # Prevents accidental merge commits. Pairs well with pull.rebase = merges.
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergeff
+        git config --global merge.ff only
+
+    # Silence the "skipped previously applied commit" advice that prints when rebasing commits that are already upstream.
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-adviceskippedCherryPicks
+        git config --global advice.skippedCherryPicks false
+
 # Depends on software
 
     # line endings
