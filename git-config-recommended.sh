@@ -94,12 +94,12 @@
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupRebase
             git config --global branch.autoSetupRebase always
 
-        # Tells git branch, git switch and git checkout to set up new branches so that git-pull will merge from the starting point branch.
-        # true: automatic setup is done when the starting point is a remote-tracking branch;
-        # always: automatic setup is done when the starting point is either a local branch or remote-tracking branch;
-            # Change from 'true' to 'always'
+        # branch.autoSetupMerge is intentionally NOT set to 'always'.
+        # 'always' sets up tracking even when branching off a local branch, so a new
+        # branch then tracks that local branch and pull/rebase targets it -- usually
+        # unwanted. The default ('true') only sets up tracking for remote-tracking
+        # starting points, which is what we want.
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupMerge
-            git config --global branch.autoSetupMerge always
 
     # Log decorations
         # Print out the ref names of any commits that are shown by the log command.
@@ -152,7 +152,7 @@
             # https://github.blog/2022-06-29-improve-git-monorepo-performance-with-a-file-system-monitor/
             # added in Git version 2.37.0
             git config --global core.fsmonitor true
-            git config --global core.untrackedcache true
+            git config --global core.untrackedCache true
 
     # Default branch name
         # https://github.blog/2020-07-27-highlights-from-git-2-28/#introducing-init-defaultbranch
@@ -167,6 +167,12 @@
         git config --global push.default simple
         git config --global push.autoSetupRemote true
 
+    # Pager
+        # git status output is often long; page it like git log/diff so you can scroll.
+        # The 'st' alias inherits this, so there's no need to bake --paginate into the alias.
+        # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pagerltcmdgt
+        git config --global pager.status true
+
     # Help autocorrect
         # https://blog.gitbutler.com/how-git-core-devs-configure-git#autocorrect-prompting
         # Example:
@@ -176,6 +182,8 @@
         git config --global help.autocorrect prompt
 
     # Remote
+        # remote.pushDefault is intentionally NOT set.
+        # Setting it to 'origin' would override branch.<name>.remote for ALL branches,
+        # which surprises fork/upstream workflows where a branch should push to its own
+        # tracking remote. (It is still overridden by branch.<name>.pushRemote.)
         # https://git-scm.com/docs/git-config#Documentation/git-config.txt-remotepushDefault
-        # The remote to push to by default. Overrides branch.<name>.remote for all branches, and is overridden by branch.<name>.pushRemote for specific branches.
-        git config --global remote.pushDefault origin
