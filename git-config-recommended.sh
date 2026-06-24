@@ -51,11 +51,6 @@
         # git status should show a summary of commits for modified submodules.
             # https://git-scm.com/docs/git-config#Documentation/git-config.txt-statussubmoduleSummary
             git config --global status.submoduleSummary true
-        # git push should recurse into submodules on-demand
-            # all submodules that changed in the revisions to be pushed will be pushed
-            # Change from 'no' to 'on-demand'
-            # https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushrecurseSubmodules
-            git config --global push.recurseSubmodules on-demand
 
     # diff
         # Git should detect both renames and copies. Theoretically slows down git.
@@ -177,7 +172,7 @@
 
     # Push
         # https://blog.gitbutler.com/how-git-core-devs-configure-git#better-pushing
-        git config --global push.default simple
+        git config --global push.default current
         git config --global push.autoSetupRemote true
 
     # Pager
