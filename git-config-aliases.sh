@@ -8,9 +8,7 @@ set -euxo pipefail
 git config --global alias.ri 'rebase --interactive --autosquash --rebase-merges'
 git config --global alias.f 'fetch --all --prune --jobs=16'
 git config --global alias.detach 'checkout --detach'
-git config --global alias.ss 'status --short'
 git config --global alias.m 'mergetool --no-prompt --tool=vimdiff'
-git config --global alias.exec '!exec '
 
 # Git log --graph aliases
 # Several variants of `git log --graph --oneline` with richer formatting:
